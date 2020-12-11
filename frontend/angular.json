@@ -5,10 +5,17 @@
   "projects": {
     "acn-code-now": {
       "projectType": "application",
-      "schematics": {},
+      "schematics": {
+        "@schematics/angular:component": {
+          "prefix": "airpoll"
+        },
+        "@schematics/angular:directive": {
+          "prefix": "airpoll"
+        }
+      },
       "root": "",
       "sourceRoot": "src",
-      "prefix": "app",
+      "prefix": "airpoll",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",

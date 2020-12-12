@@ -1,3 +1,3 @@
-<div *ngFor="let place of airQualityList; let i=index">
-    <p (click)="selectedLocation(i)">{{place.city+' '+place.country}}</p>
+<div class="c-link" *ngFor="let place of airQualityList; let i=index" (click)="selectedLocation(i)">
+    <a>{{place.city+' '+place.country}}</a>
 </div>

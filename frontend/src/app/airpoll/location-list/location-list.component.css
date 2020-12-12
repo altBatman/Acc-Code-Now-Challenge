@@ -1,0 +1,7 @@
+.c-link{
+    background-color: tomato;
+    width: 100%;
+    border-radius: 3px;
+    margin: 2px 0;
+    cursor: pointer;
+}

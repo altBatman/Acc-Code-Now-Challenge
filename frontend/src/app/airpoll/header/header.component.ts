@@ -14,7 +14,6 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {
     this.airDataService.getairdata().subscribe((data)=>{
       this.message = data.length;
-      console.log(data);
     }, (error)=>{
       console.log(error);
       this.message = error.message;

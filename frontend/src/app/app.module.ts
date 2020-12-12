@@ -8,6 +8,7 @@ import { HomeComponent } from './airpoll/home/home.component';
 import { HeaderComponent } from './airpoll/header/header.component';
 import { LocationListComponent } from './airpoll/location-list/location-list.component';
 import { HttpClientModule } from '@angular/common/http';
+import { LocationDataComponent } from './airpoll/location-data/location-data.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { HttpClientModule } from '@angular/common/http';
     DashboardComponent,
     HomeComponent,
     HeaderComponent,
-    LocationListComponent
+    LocationListComponent,
+    LocationDataComponent
   ],
   imports: [
     BrowserModule,

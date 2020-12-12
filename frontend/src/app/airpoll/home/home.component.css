@@ -1,28 +1,38 @@
-.c-result-data{
-    background: green;
+.c-result-list{
+    border: solid black 2px;
+    border-radius: 10px;
+    padding: 10px;
 }
 
 .c-close-btn{
     display: none;
+}
+.c-location-data{
+    position: sticky;
+    top: 0;
+    height:100%;
 }
 
 /* Smaller width media query -- CSS */
 
 @media screen and (max-width: 768px) {
     .container{
-        margin: 0 0;
         position: relative;
+        margin: 0 0;
         height: 100%;
         width: 100%;
     }
-    .c-result-data {
+    .c-result-list {
         width: 100vw;
-        background: red;
+        max-height: 100vh;
+        overflow: hidden;
     }
-    .c-router-data{
+    .c-location-data{
         position: absolute;
         top: 0;
         left: 0;
+        width:100vw;
+        background-color: white;
     }
 
     .c-close-btn{

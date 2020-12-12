@@ -1,0 +1,9 @@
+<div *ngIf="!!locationData">
+    <p>City-- {{locationData.city}}</p>
+    <p>Country-- {{locationData.country}}</p>
+    <p>Date-- {{locationData.date}}</p>
+    <p>AirQuality-- {{locationData.average}} {{locationData.unit}}</p>
+    <p>Location-- {{locationData.location}}</p>
+    <p>Latitude-- {{locationData.coordinates.latitude}}</p>
+    <p>Lon-- {{locationData.coordinates.longitude}}</p>
+</div>

@@ -1,8 +1,9 @@
-import { Controller, Get, Param } from '@nestjs/common';
+import { Controller, Get, Logger, Param } from '@nestjs/common';
 import { DataService } from './data.service';
 
 @Controller('data')
 export class DataController {
+    private logger= new Logger('DataService');
     constructor(private dataService: DataService){}
 
     @Get()
@@ -10,8 +11,9 @@ export class DataController {
         return await this.dataService.getAvgAirqualityData();
     }
 
-    @Get(':country')
-    async getCountryAvg(@Param('country') countryID){
-        return await this.dataService.getCountryAirqualityData(countryID);
-    }
+    /* @Get()
+    async getCountryAvg(@Param() countryID){
+        this.logger.log('hello');
+        return await this.dataService.getCountryAirqualityData(countryID[`country`]);
+    } */
 }

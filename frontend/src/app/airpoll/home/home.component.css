@@ -3,10 +3,7 @@
 }
 
 .c-close-btn{
-    visibility: hidden;
-    position: absolute;
-    top: 0;
-    right: 0;
+    display: none;
 }
 
 /* Smaller width media query -- CSS */
@@ -15,6 +12,8 @@
     .container{
         margin: 0 0;
         position: relative;
+        height: 100%;
+        width: 100%;
     }
     .c-result-data {
         width: 100vw;
@@ -24,14 +23,12 @@
         position: absolute;
         top: 0;
         left: 0;
-        height: 100vh;
-        width: 100vw;
     }
 
     .c-close-btn{
-        visibility: visible;
+        display: block;
         position: absolute;
         top: 0;
-        right: 0;
+        right: 5px;
     }
 }

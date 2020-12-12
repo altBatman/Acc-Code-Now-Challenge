@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AirDataService } from 'src/app/shared/services/air-data.service';
 
 @Component({
   selector: 'airpoll-header',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  public message;
+  constructor(private airDataService: AirDataService) { }
 
   ngOnInit(): void {
+    this.airDataService.getairdata().subscribe((data)=>{
+      this.message = data.length;
+      console.log(data);
+    }, (error)=>{
+      console.log(error);
+      this.message = error.message;
+    });
   }
 
 }

@@ -11,3 +11,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     width:60%;
     margin:0 20%;
 }
+
+*{
+    box-sizing: border-box;
+}

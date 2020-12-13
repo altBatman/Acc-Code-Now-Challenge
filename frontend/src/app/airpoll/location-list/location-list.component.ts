@@ -36,7 +36,7 @@ export class LocationListComponent implements OnInit {
   }
 
   public getlistFromServer(pageNumber: number): void{
-    this.pageNumber = this.pageNumber;
+    this.pageNumber = pageNumber;
     this.airDataService.getairdata(pageNumber).subscribe((data: IavgAirQualityData[])=>{
       this.hasServerError = false;
       this.airQualityList.push(...data);

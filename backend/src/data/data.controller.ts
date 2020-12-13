@@ -6,14 +6,8 @@ export class DataController {
     private logger= new Logger('DataService');
     constructor(private dataService: DataService){}
 
-    @Get()
-    async getAllAverageData(){
-        return await this.dataService.getAvgAirqualityData();
+    @Get(':page')
+    async getAllAverageData(@Param('page') page){
+        return await this.dataService.getAirqualityData(page);
     }
-
-    /* @Get()
-    async getCountryAvg(@Param() countryID){
-        this.logger.log('hello');
-        return await this.dataService.getCountryAirqualityData(countryID[`country`]);
-    } */
 }

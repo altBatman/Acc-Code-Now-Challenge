@@ -5,14 +5,8 @@ import { map } from 'rxjs/operators';
 export class DataService {
     constructor(private http: HttpService){}
 
-    async getAvgAirqualityData(){
-        return await this.http.get('https://api.openaq.org/beta/averages/').pipe( map( (res)=>{
-            return res.data[`results`];
-        }));
-    }
-
-    async getCountryAirqualityData(country){
-        return await this.http.get(`https://api.openaq.org/beta/averages/?country=${country}`).pipe( map( (res)=>{
+    async getAirqualityData(page){
+        return await this.http.get(`https://api.openaq.org/beta/averages/?page=${page}`).pipe( map( (res)=>{
             return res.data[`results`];
         }));
     }

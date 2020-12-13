@@ -11,7 +11,7 @@ export class AirDataService {
 
     constructor(private http: HttpClient){}
 
-    getairdata(): Observable<any>{
-        return this.http.get('/api/data', {responseType: 'json'});
+    getairdata(page): Observable<any>{
+        return this.http.get(`/api/data/${page}`, {responseType: 'json'});
     }
 }

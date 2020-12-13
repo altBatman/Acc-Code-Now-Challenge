@@ -23,20 +23,23 @@ export interface IavgAirQualityData {
   styleUrls: ['./location-list.component.css']
 })
 export class LocationListComponent implements OnInit {
-  public airQualityList: IavgAirQualityData[];
+  public airQualityList: IavgAirQualityData[] = [];
   public hasServerError: boolean;
   public serverErrorCode: number;
+  public pageNumber: number;
 
   constructor(private airDataService: AirDataService) { }
 
   ngOnInit(): void {
-    this.getlistFromServer();
+    this.pageNumber = 1;
+    this.getlistFromServer(this.pageNumber);
   }
 
-  private getlistFromServer(): void{
-    this.airDataService.getairdata().subscribe((data: IavgAirQualityData[])=>{
+  public getlistFromServer(pageNumber: number): void{
+    this.pageNumber = this.pageNumber;
+    this.airDataService.getairdata(pageNumber).subscribe((data: IavgAirQualityData[])=>{
       this.hasServerError = false;
-      this.airQualityList = data;
+      this.airQualityList.push(...data);
     }, (error)=>{
       this.hasServerError = true;
       console.log(error.status);

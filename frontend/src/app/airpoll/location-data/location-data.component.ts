@@ -3,6 +3,7 @@ import { AirDataService } from 'src/app/shared/services/air-data.service';
 import { IavgAirQualityData } from '../location-list/location-list.component';
 
 @Component({
+  // tslint:disable-next-line: component-selector
   selector: 'airpoll-location-data',
   templateUrl: './location-data.component.html',
   styleUrls: ['./location-data.component.css']

@@ -12,16 +12,5 @@ export class AppController {
   getHello(): string {
     return this.appService.getHello();
   }
-  @Get('old')
-  world(): string {
-    return this.appService.getHello();
-  }
-
-  @Get('new/:country')
-  async getNew(@Param('country') payload){
-    return await this.http.get('https://api.openaq.org/beta/averages/').pipe( map( (res)=>{
-      this.logger.log(payload);
-      return res.data[`meta`];
-    }));
-  }
+  
 }

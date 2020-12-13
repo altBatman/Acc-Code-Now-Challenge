@@ -9,6 +9,7 @@ import { HeaderComponent } from './airpoll/header/header.component';
 import { LocationListComponent } from './airpoll/location-list/location-list.component';
 import { HttpClientModule } from '@angular/common/http';
 import { LocationDataComponent } from './airpoll/location-data/location-data.component';
+import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { LocationDataComponent } from './airpoll/location-data/location-data.com
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    HttpClientModule
+    HttpClientModule,
+    InfiniteScrollModule
   ],
   providers: [],
   bootstrap: [AppComponent],

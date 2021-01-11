@@ -1,9 +1,9 @@
-<div class="c-link" *ngFor="let place of airQualityList; let i=index" (click)="selectedLocation(i)">
+<div class="c-link" *ngFor="let place of airQualityList; let i=index" (click)="selectedLocation(place)">
     <a>{{place.city+' '+place.country}}</a>
 </div>
 <div 
     infiniteScroll 
     [infiniteScrollDistance]="2"
     [infiniteScrollThrottle]="1000"
-    (scrolled)="getlistFromServer(pageNumber+1)"
+    (scrolled)="getlistFromServer()"
 ></div>

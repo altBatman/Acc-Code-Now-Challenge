@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { isSmallBreakpoint } from 'src/app/shared/utils/breakpoint';
+import { faWindowClose } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   // tslint:disable-next-line: component-selector
@@ -9,14 +10,18 @@ import { isSmallBreakpoint } from 'src/app/shared/utils/breakpoint';
 })
 export class HomeComponent implements OnInit {
   public isSmallBreakpoint= isSmallBreakpoint();
-  public closeData = false;
+  showData = true;
+  public faWindowClose = faWindowClose;
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  toggleData(): void{
-    this.closeData = !this.closeData;
+  openData(): void{
+    this.showData = true;
   }
 
+  closeData(): void {
+    this.showData= false;
+  }
 }

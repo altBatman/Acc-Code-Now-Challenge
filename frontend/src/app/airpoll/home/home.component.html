@@ -1,11 +1,10 @@
 <airpoll-header></airpoll-header>
 <div class="container flex-wrapper">
-    
-    <div class="c-result-list">
-        <airpoll-location-list></airpoll-location-list>
+    <div class="c-result-list" (click)="openData()">
+        <airpoll-location-list (selected)="openData()"></airpoll-location-list>
     </div>
-    <div class="c-location-data">
+    <div class="c-location-data" *ngIf="showData">
         <airpoll-location-data></airpoll-location-data>
     </div>
-    <a class="c-close-btn">B</a>
+    <fa-icon *ngIf="showData" class="c-close-btn" [icon]="faWindowClose" (click)="closeData()"></fa-icon>
 </div>

@@ -10,6 +10,8 @@ import { LocationListComponent } from './airpoll/location-list/location-list.com
 import { HttpClientModule } from '@angular/common/http';
 import { LocationDataComponent } from './airpoll/location-data/location-data.component';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { AirDataService } from './shared/services/air-data.service';
 
 @NgModule({
   declarations: [
@@ -25,9 +27,10 @@ import { InfiniteScrollModule } from 'ngx-infinite-scroll';
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    InfiniteScrollModule
+    InfiniteScrollModule,
+    FontAwesomeModule
   ],
-  providers: [],
+  providers: [AirDataService],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

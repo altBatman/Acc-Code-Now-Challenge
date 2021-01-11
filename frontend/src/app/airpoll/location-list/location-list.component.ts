@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { AirDataService } from 'src/app/shared/services/air-data.service';
 
 export interface IavgAirQualityData {
@@ -27,26 +27,28 @@ export class LocationListComponent implements OnInit {
   public hasServerError: boolean;
   public serverErrorCode: number;
   public pageNumber: number;
+  @Output() selected = new EventEmitter<void>();
 
   constructor(private airDataService: AirDataService) { }
 
   ngOnInit(): void {
     this.pageNumber = 1;
-    this.getlistFromServer(this.pageNumber);
+    this.getlistFromServer();
   }
 
-  public getlistFromServer(pageNumber: number): void{
-    this.pageNumber = pageNumber;
-    this.airDataService.getairdata(pageNumber).subscribe((data: IavgAirQualityData[])=>{
+  public getlistFromServer(): void{
+    this.pageNumber = this.pageNumber+1;
+    this.airDataService.getairdata(this.pageNumber).subscribe((data: IavgAirQualityData[])=>{
       this.hasServerError = false;
       this.airQualityList.push(...data);
     }, (error)=>{
       this.hasServerError = true;
-      console.log(error.status);
+      console.log(error);
     });
   }
 
-  public selectedLocation(index: number){
-    this.airDataService.selectedLocation.next(this.airQualityList[index]);
+  public selectedLocation(data: IavgAirQualityData){
+    this.selected.emit();
+    this.airDataService.selectedLocationData(data);
   }
 }

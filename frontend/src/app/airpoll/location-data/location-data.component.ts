@@ -13,7 +13,7 @@ export class LocationDataComponent implements OnInit {
   constructor(private airDataService: AirDataService) { }
 
   ngOnInit(): void {
-    this.airDataService.cast.subscribe((data)=>{
+    this.airDataService.castLocation$.subscribe( (data: IavgAirQualityData)=>{
       this.locationData = data;
     });
   }

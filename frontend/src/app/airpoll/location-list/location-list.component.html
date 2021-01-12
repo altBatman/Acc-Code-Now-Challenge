@@ -1,4 +1,4 @@
-<div class="c-link" *ngFor="let place of airQualityList; let i=index" (click)="selectedLocation(place)">
+<div class="c-link" *ngFor="let place of airQualityList" (click)="selectedLocation(place)">
     <a>{{place.city+' '+place.country}}</a>
 </div>
 <div 
@@ -7,3 +7,5 @@
     [infiniteScrollThrottle]="1000"
     (scrolled)="getlistFromServer()"
 ></div>
+
+<span *ngIf="loading" class="loader"></span>

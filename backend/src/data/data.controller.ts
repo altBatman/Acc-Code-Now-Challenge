@@ -7,7 +7,7 @@ export class DataController {
     constructor(private dataService: DataService){}
 
     @Get(':page')
-    async getAllAverageData(@Param('page') page){
-        return await this.dataService.getAirqualityData(page);
+    getAllAverageData(@Param('page') page){
+        return this.dataService.getAirqualityData(page);
     }
 }

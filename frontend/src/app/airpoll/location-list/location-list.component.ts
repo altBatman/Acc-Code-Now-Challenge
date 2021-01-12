@@ -27,18 +27,22 @@ export class LocationListComponent implements OnInit {
   public hasServerError: boolean;
   public serverErrorCode: number;
   public pageNumber: number;
+  public loading: boolean;
   @Output() selected = new EventEmitter<void>();
 
   constructor(private airDataService: AirDataService) { }
 
   ngOnInit(): void {
-    this.pageNumber = 1;
+    this.loading = true;
+    this.pageNumber = 0;
     this.getlistFromServer();
   }
 
   public getlistFromServer(): void{
+    this.loading = true;
     this.pageNumber = this.pageNumber+1;
     this.airDataService.getairdata(this.pageNumber).subscribe((data: IavgAirQualityData[])=>{
+      this.loading = false;
       this.hasServerError = false;
       this.airQualityList.push(...data);
     }, (error)=>{

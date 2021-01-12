@@ -1,6 +1,6 @@
 <airpoll-header></airpoll-header>
 <div class="container flex-wrapper">
-    <div class="c-result-list" (click)="openData()">
+    <div class="c-result-list">
         <airpoll-location-list (selected)="openData()"></airpoll-location-list>
     </div>
     <div class="c-location-data" *ngIf="showData">

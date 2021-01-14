@@ -1,16 +1,13 @@
-import { Controller, Get, HttpService, Logger, Param } from '@nestjs/common';
+import { Controller, Get, Logger } from '@nestjs/common';
 import { AppService } from './app.service';
-import { map } from 'rxjs/operators'
 
 @Controller()
 export class AppController {
-
   public logger = new Logger('Applogger');
-  constructor(private readonly appService: AppService, private http: HttpService) {}
+  constructor(private readonly appService: AppService) {}
 
   @Get()
   getHello(): string {
     return this.appService.getHello();
   }
-  
 }

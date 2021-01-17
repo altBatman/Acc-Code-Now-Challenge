@@ -28,6 +28,7 @@ export class LocationListComponent implements OnInit {
   public serverErrorCode: number;
   public pageNumber: number;
   public loading: boolean;
+  selector = '.box';
   @Output() selected = new EventEmitter<void>();
 
   constructor(private airDataService: AirDataService) { }
@@ -39,12 +40,14 @@ export class LocationListComponent implements OnInit {
   }
 
   public getlistFromServer(): void{
+    console.log('Hello from scroll');
     this.loading = true;
     this.pageNumber = this.pageNumber+1;
     this.airDataService.getairdata(this.pageNumber).subscribe((data: IavgAirQualityData[])=>{
       this.loading = false;
       this.hasServerError = false;
       this.airQualityList.push(...data);
+      console.log('recieved data');
     }, (error)=>{
       this.hasServerError = true;
       console.log(error);

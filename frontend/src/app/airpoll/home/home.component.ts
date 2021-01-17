@@ -10,7 +10,7 @@ import { faWindowClose } from '@fortawesome/free-solid-svg-icons';
 })
 export class HomeComponent implements OnInit {
   public isSmallBreakpoint= isSmallBreakpoint();
-  showData = true;
+  showData = false;
   public faWindowClose = faWindowClose;
   constructor() { }
 

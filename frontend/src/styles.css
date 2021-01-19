@@ -42,52 +42,45 @@ body::-webkit-scrollbar-thumb {
 }
 
 .loader {
-    width: 175px;
-    height: 80px;
+    width: 48px;
+    height: 48px;
+    background: #FF3D00;
     display: block;
-    margin: auto;
-    background-image: radial-gradient(circle 25px at 25px 25px, grey 100%, transparent 0), radial-gradient(circle 50px at 50px 50px, grey 100%, transparent 0), radial-gradient(circle 25px at 25px 25px, grey 100%, transparent 0), linear-gradient(grey 50px, transparent 0);
-    background-size: 50px 50px, 100px 76px, 50px 50px, 120px 40px;
-    background-position: 0px 30px, 37px 0px, 122px 30px, 25px 40px;
-    background-repeat: no-repeat;
+    margin: 20px auto;
     position: relative;
     box-sizing: border-box;
-}
-.loader::after {
-    content: '';  
-    left: 50%;
-    bottom: 0;
-    transform: translate(-50%, 0);
-    position: absolute;
-    border: 15px solid transparent;
-    border-top-color: #FF3D00;
-    box-sizing: border-box;
-    animation: fadePush 1s linear infinite;
+    animation: rotationBack 1s ease-in-out infinite reverse;
 }
 .loader::before {
     content: '';  
-    left: 50%;
-    bottom: 30px;
-    transform: translate(-50%, 0);
-    position: absolute;
-    width: 15px;
-    height: 15px;
-    background: #FF3D00;
     box-sizing: border-box;
-    animation: fadePush 1s linear infinite;
+    left: 0;
+    top: 0;
+    transform: rotate(45deg);
+    position: absolute;
+    width: 48px;
+    height: 48px;
+    background: #FF3D00;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
 }
-
-@keyframes fadePush {
+.loader::after {
+    content: '';  
+    box-sizing: border-box;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    background: #FFF;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+}
+@keyframes rotationBack {
     0% {
-        transform: translate(-50%, -15px);
-        opacity: 0;
-    }
-    50% {
-        transform: translate(-50%, 0px);
-        opacity: 1;
+        transform: rotate(0deg);
     }
     100% {
-        transform: translate(-50%, 15px);
-        opacity: 0;
+        transform: rotate(-360deg);
     }
 }

@@ -40,17 +40,15 @@ export class LocationListComponent implements OnInit {
   }
 
   public getlistFromServer(): void{
-    console.log('Hello from scroll');
     this.loading = true;
     this.pageNumber = this.pageNumber+1;
     this.airDataService.getairdata(this.pageNumber).subscribe((data: IavgAirQualityData[])=>{
       this.loading = false;
       this.hasServerError = false;
       this.airQualityList.push(...data);
-      console.log('recieved data');
     }, (error)=>{
       this.hasServerError = true;
-      console.log(error);
+      this.loading = false;
     });
   }
 

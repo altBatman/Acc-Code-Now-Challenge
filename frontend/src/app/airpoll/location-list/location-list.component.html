@@ -9,4 +9,7 @@
     <div class="c-link" *ngFor="let place of airQualityList" (click)="selectedLocation(place)">
         <a>{{place.city+' '+place.country}}</a>
     </div>
+    <div *ngIf="loading">
+        <span class="loader"></span>
+    </div>
 </div>
